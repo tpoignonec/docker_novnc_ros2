@@ -8,6 +8,7 @@ RUN set -ex; \
       net-tools \
       novnc \
       supervisor \
+      fluxbox \
       x11vnc \
       xvfb
 
