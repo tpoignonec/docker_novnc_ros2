@@ -7,10 +7,10 @@ RUN set -ex; \
       bash \
       net-tools \
       novnc \
+      tigervnc-standalone-server \
+      xvfb \
       supervisor \
-      fluxbox \
-      x11vnc \
-      xvfb
+      fluxbox
 
 # Install IDE, git, and other utilities
 RUN apt-get update; \
@@ -18,14 +18,16 @@ RUN apt-get update; \
     git \
     terminator
 
+# RUN apt-get update && apt-get install -y xfce4
+
 # Setup environment variables
 ENV HOME=/home \
     LANG=en_US.UTF-8 \
     LANGUAGE=en_US.UTF-8 \
     LC_ALL=C.UTF-8 \
     DISPLAY=:0.0 \
-    DISPLAY_WIDTH=1024 \
-    DISPLAY_HEIGHT=768
+    DISPLAY_WIDTH=1920 \
+    DISPLAY_HEIGHT=1080
 
 COPY . /app
 CMD ["/app/entrypoint.sh"]
